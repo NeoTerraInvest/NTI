@@ -5,54 +5,6 @@
   background-color: #00194c;
   font-family: 'Pretendard', 'Arial', sans-serif;
 
-  #header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 24px 32px 24px;
-
-    #logo {
-      display: flex;
-      flex-direction: column;
-      font-size: 30px;
-      font-family: 'Helvetica', 'Arial', sans-serif;
-      font-weight: 900;
-      color: #f9f9f9;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      cursor: pointer;
-      #main {
-        font-size: 50px;
-        margin-bottom: 2px;
-      }
-    }
-
-    #language {
-      display: flex;
-      #symbol {
-        background-image: none;
-      }
-      select {
-        border: none;
-        outline: none;
-        color: #f9f9f9;
-        background-color: #00194c;
-      }
-    }
-  }
-
-  #banner {
-    display: flex;
-
-    #bannerImage {
-      width: 100%;
-      height: 500px;
-      background-image: url('../assets/img/banner-skyscraper.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
-
   #contents {
     background-color: #f9f9f9;
     width: 100%;
@@ -249,50 +201,6 @@
       }
     }
   }
-
-  #footer {
-    background-color: #00194c;
-    color: #f9f9f9;
-    padding: 24px 24px;
-
-    #logo {
-      display: flex;
-      flex-direction: column;
-      font-weight: 100;
-      letter-spacing: 2px;
-      font-size: 10px;
-      font-family: 'Helvetica', 'Arial', sans-serif;
-      text-transform: uppercase;
-
-      #main {
-        font-size: 40px;
-        font-weight: 900;
-      }
-    }
-
-    #footerContents {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      margin-top: 20px;
-
-      #footerGroup {
-        display: flex;
-        justify-content: space-evenly;
-        width: 50%;
-        font-size: 20px;
-        font-weight: 200;
-        letter-spacing: 1.5px;
-        span {
-          cursor: pointer;
-
-          &:hover {
-            color: gray;
-          }
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 440px) {
@@ -341,15 +249,5 @@
   #investContents #DeFImage,
   #investContents #web3Image {
     width: 350px !important;
-  }
-
-  #footerContents {
-    flex-direction: column;
-    margin: 0;
-  }
-
-  #footerGroup {
-    flex-direction: column;
-    margin-top: 20px;
   }
 }

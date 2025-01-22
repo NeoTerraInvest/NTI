@@ -1,0 +1,47 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 24px 32px 24px;
+
+  #logo {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 900;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    cursor: pointer;
+    #main {
+      font-size: 50px;
+      margin-bottom: 2px;
+    }
+  }
+
+  #language {
+    display: flex;
+    #symbol {
+      background-image: none;
+    }
+    select {
+      border: none;
+      outline: none;
+      color: #f9f9f9;
+      background-color: #00194c;
+    }
+  }
+}
+
+#banner {
+  display: flex;
+
+  #bannerImage {
+    width: 100%;
+    height: 500px;
+    background-image: url('../assets/img/banner-skyscraper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

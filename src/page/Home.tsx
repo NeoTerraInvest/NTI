@@ -1,14 +1,11 @@
 import styled from './Home.module.scss';
-import { kor, eng } from '../assets/language';
+// import { kor, eng } from '../assets/language';
 import { useEffect, useRef, useState } from 'react';
+import { Header, Footer } from '../components';
+
 const Home = () => {
-  const [isLanguage, setLanguage] = useState<string>('Eng');
   const [isActive, setActive] = useState<string>('');
   const contentRef = useRef<HTMLDivElement>(null); // 컴포넌트 참조
-
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
-  };
 
   const hanldeActive = (type: string) => {
     setActive(type);
@@ -35,35 +32,14 @@ const Home = () => {
 
   return (
     <div className={styled.container}>
-      <header id={styled.header}>
-        <div id={styled.logo}>
-          <span id={styled.main}>NTI</span>
-          <span>NEO TERRA INVEST</span>
-        </div>
-        <div id={styled.menu}>
-          <button id={styled.language}>
-            <select
-              name="language"
-              id="language-select"
-              onChange={handleLanguageChange}
-              value={isLanguage}
-            >
-              <option value="eng">ENG</option>
-              <option value="kor">KOR</option>
-            </select>
-          </button>
-        </div>
-      </header>
-      <div id={styled.banner}>
-        <div id={styled.bannerImage} />
-      </div>
+      <Header />
       <div id={styled.contents}>
         <div id={styled.about}>
           <span id={styled.aboutTitle}>About Us</span>
           <hr />
           <div id={styled.aboutDetail}>
             <div id={styled.aboutus}>
-              <span>{isLanguage === 'kor' ? kor.about : eng.about}</span>
+              {/* <span>{isLanguage === 'kor' ? kor.about : eng.about}</span> */}
               <hr />
               <div id={styled.details} ref={contentRef}>
                 <div id={styled.content}>
@@ -82,7 +58,7 @@ const Home = () => {
                         hanldeActive('');
                       }}
                     >
-                      {isLanguage === 'kor' ? kor.start : eng.start}
+                      {/* {isLanguage === 'kor' ? kor.start : eng.start} */}
                     </div>
                   )}
                 </div>
@@ -102,7 +78,7 @@ const Home = () => {
                         hanldeActive('');
                       }}
                     >
-                      {isLanguage === 'kor' ? kor.newInvest : eng.newInvest}
+                      {/* {isLanguage === 'kor' ? kor.newInvest : eng.newInvest} */}
                     </div>
                   )}
                 </div>
@@ -123,7 +99,7 @@ const Home = () => {
                           hanldeActive('');
                         }}
                       >
-                        {isLanguage === 'kor' ? kor.newglobal : eng.newglobal}
+                        {/* {isLanguage === 'kor' ? kor.newglobal : eng.newglobal} */}
                       </div>
                       <div
                         className={styled.description}
@@ -131,7 +107,7 @@ const Home = () => {
                           hanldeActive('');
                         }}
                       >
-                        {isLanguage === 'kor' ? kor.adventure : eng.adventure}
+                        {/* {isLanguage === 'kor' ? kor.adventure : eng.adventure} */}
                       </div>
                     </>
                   )}
@@ -153,7 +129,7 @@ const Home = () => {
                           hanldeActive('');
                         }}
                       >
-                        {isLanguage === 'kor' ? kor.trust : eng.trust}
+                        {/* {isLanguage === 'kor' ? kor.trust : eng.trust} */}
                       </div>
                       <div
                         className={styled.description}
@@ -161,7 +137,7 @@ const Home = () => {
                           hanldeActive('');
                         }}
                       >
-                        {isLanguage === 'kor' ? kor.value : eng.value}
+                        {/* {isLanguage === 'kor' ? kor.value : eng.value} */}
                       </div>
                     </>
                   )}
@@ -206,21 +182,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <footer id={styled.footer}>
-        <div id={styled.logo}>
-          <span id={styled.main}>NTI</span>
-          <span>NEO TERRA INVEST</span>
-        </div>
-        <div id={styled.footerContents}>
-          <span>© 2012 Neo Terra Invest</span>
-          <div id={styled.footerGroup}>
-            <span>Contact</span>
-            <span>About Us</span>
-            <span>investment in the Future</span>
-          </div>
-        </div>
-        <div></div>
-      </footer>
+      <Footer />
     </div>
   );
 };
