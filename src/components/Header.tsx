@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from '../styles/header.module.scss';
+import init, { greet } from 'wasm-lib';
 
 const header = () => {
   const [isLanguage, setLanguage] = useState<string>('Eng');
@@ -8,8 +9,19 @@ const header = () => {
     setLanguage(e.target.value);
   };
 
+  //import Rust lib from React
+  const [message, setMessage] = useState('');
+
+  const handleClick = async () => {
+    await init('/wasm_lib_bg.wasm'); // WebAssembly init
+    const greeting = greet('Neo Terra');
+    setMessage(greeting);
+  };
+
   return (
     <div>
+      <button onClick={handleClick}>Click</button>
+      <p>{message}</p>
       <header id={styled.header}>
         <div id={styled.logo}>
           <span id={styled.main}>NTI</span>
