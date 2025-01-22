@@ -5,7 +5,7 @@ import { Header, Footer } from '../components';
 
 const Home = () => {
   const [isActive, setActive] = useState<string>('');
-  const contentRef = useRef<HTMLDivElement>(null); // 컴포넌트 참조
+  const contentRef = useRef<HTMLDivElement>(null); // reference Components
 
   const hanldeActive = (type: string) => {
     setActive(type);
