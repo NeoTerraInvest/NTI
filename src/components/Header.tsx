@@ -1,27 +1,44 @@
-import { useState } from 'react';
 import styled from '../styles/header.module.scss';
-import init, { greet } from 'wasm-lib';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../store';
+import { eng, kor } from '../store';
+// import init, { greet } from 'wasm-lib';
 
 const header = () => {
-  const [isLanguage, setLanguage] = useState<string>('Eng');
+  // const [isLanguage, setLanguage] = useState<string>('Eng');
+  const dispatch = useDispatch<AppDispatch>();
+  const currentLanguage = useSelector(
+    (state: RootState) => state.language.language,
+  );
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
+    const selectedLanguage = e.target.value;
+    if (selectedLanguage === 'eng') {
+      dispatch(eng());
+      console.log('eng');
+    } else {
+      dispatch(kor());
+      console.log('kor');
+    }
   };
+
+  // const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setLanguage(e.target.value);
+  // };
 
   //import Rust lib from React
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
-  const handleClick = async () => {
-    await init('/wasm_lib_bg.wasm'); // WebAssembly init
-    const greeting = greet('Neo Terra');
-    setMessage(greeting);
-  };
+  // const handleClick = async () => {
+  //   await init('/wasm_lib_bg.wasm'); // WebAssembly init
+  //   const greeting = greet('Neo Terra');
+  //   setMessage(greeting);
+  // };
 
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
-      <p>{message}</p>
+      {/* <button onClick={handleClick}>Click</button>
+      <p>{message}</p> */}
       <header id={styled.header}>
         <div id={styled.logo}>
           <span id={styled.main}>NTI</span>
@@ -33,7 +50,7 @@ const header = () => {
               name="language"
               id="language-select"
               onChange={handleLanguageChange}
-              value={isLanguage}
+              value={currentLanguage}
             >
               <option value="eng">ENG</option>
               <option value="kor">KOR</option>
