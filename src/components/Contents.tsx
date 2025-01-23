@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { kor, eng } from '../assets/language';
@@ -19,7 +19,8 @@ const Contents = () => {
     console.log(type);
   };
 
-  const fetchLanguage = async () => {
+  // Use useCallback to prevent re-creation
+  const fetchLanguage = useCallback(async () => {
     try {
       await init('/wasm_lib_bg.wasm');
       const manager = language_manager(supportLanguage);
@@ -28,7 +29,7 @@ const Contents = () => {
     } catch (error) {
       console.error('Error loading language data:', error);
     }
-  };
+  }, [supportLanguage]);
 
   useEffect(() => {
     fetchLanguage();
@@ -48,7 +49,7 @@ const Contents = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [supportLanguage]);
+  }, [fetchLanguage]);
 
   return (
     <div id={styled.contents}>

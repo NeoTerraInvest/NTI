@@ -4,7 +4,7 @@ import { RootState, AppDispatch } from '../store';
 import { eng, kor } from '../store';
 // import init, { greet } from 'wasm-lib';
 
-const header = () => {
+const Header = () => {
   // const [isLanguage, setLanguage] = useState<string>('Eng');
   const dispatch = useDispatch<AppDispatch>();
   const currentLanguage = useSelector(
@@ -65,4 +65,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
