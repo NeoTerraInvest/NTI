@@ -61,7 +61,12 @@ const Header = () => {
       </header>
       <div id={styled.banner}>
         <div id={styled.bannerImage}>
-          <img src={banner} alt="Banner" loading="lazy" />
+          <img
+            src={banner}
+            alt="Banner"
+            // srcSet="../assets/img/banner-skyscraper.jpg 480w, ../assets/img/banner-skyscraper.jpg 1080w"
+            sizes="(max-width: 600px) 480px, 1080px"
+          />
         </div>
       </div>
     </div>
