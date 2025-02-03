@@ -4,6 +4,10 @@ import { RootState } from '../store';
 import { kor, eng } from '../assets/language';
 import styled from '../styles/contents.module.scss';
 import init, { language_manager } from 'wasm-lib';
+import ai from '../assets/img/ai.jpg';
+import quantum from '../assets/img/quantum.jpg';
+import rwa from '../assets/img/rwa.svg';
+import web3 from '../assets/img/web3.jpg';
 
 const Contents = () => {
   const supportLanguage = useSelector(
@@ -12,7 +16,7 @@ const Contents = () => {
   const [isLanguage, setLanguage] = useState<Record<string, string>>({});
 
   const [isActive, setActive] = useState<string>('');
-  const contentRef = useRef<HTMLDivElement>(null); // reference Components
+  const contentRef = useRef<HTMLDivElement>(null); // Reference components to provide detailed explanations
 
   const hanldeActive = (type: string) => {
     setActive(type);
@@ -180,24 +184,28 @@ const Contents = () => {
         <div id={styled.investContents}>
           <div className={styled.aiContents}>
             <div id={styled.aiImage}>
+              <img src={ai} alt="AI" loading="lazy" />
               <span>Artificial Intelligence</span>
             </div>
             <span>Ai</span>
           </div>
           <div className={styled.quantumContents}>
             <div id={styled.quantumImage}>
+              <img src={quantum} alt="Quantum" loading="lazy" />
               <span>Quantum Computing</span>
             </div>
             <span>Quantum</span>
           </div>
           <div className={styled.DeFIContents}>
             <div id={styled.DeFImage}>
+              <img src={rwa} alt="RWA" loading="lazy" />
               <span>Decentralized Finance</span>
             </div>
             <span>RWA</span>
           </div>
           <div className={styled.web3Contents}>
             <div id={styled.web3Image}>
+              <img src={web3} alt="Web3" loading="lazy" />
               <span>Web 3.0</span>
             </div>
             <span>Web3</span>
