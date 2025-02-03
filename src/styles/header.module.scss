@@ -35,13 +35,26 @@
 
 #banner {
   display: flex;
-
+  width: 100%;
   #bannerImage {
+    position: relative;
+    // display: flex;
     width: 100%;
     height: 500px;
-    background-image: url('../assets/img/banner-skyscraper.jpg');
+    // background-image: url('../assets/img/banner-skyscraper.jpg');
+    overflow: hidden;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
   }
 }
