@@ -2,6 +2,7 @@ import styled from '../styles/header.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store';
 import { eng, kor } from '../store';
+import banner from '../assets/img/banner-skyscraper.jpg';
 // import init, { greet } from 'wasm-lib';
 
 const Header = () => {
@@ -59,7 +60,9 @@ const Header = () => {
         </div>
       </header>
       <div id={styled.banner}>
-        <div id={styled.bannerImage} />
+        <div id={styled.bannerImage}>
+          <img src={banner} alt="Banner" loading="lazy" />
+        </div>
       </div>
     </div>
   );
