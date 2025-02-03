@@ -182,33 +182,52 @@ const Contents = () => {
         <hr />
 
         <div id={styled.investContents}>
-          <div className={styled.aiContents}>
-            <div id={styled.aiImage}>
-              <img src={ai} alt="AI" loading="lazy" />
-              <span>Artificial Intelligence</span>
+          <div className={styled.window}>
+            <div className={styled.aiContents}>
+              <div id={styled.aiImage}>
+                <img src={ai} alt="AI" loading="lazy" />
+                <span>Artificial Intelligence</span>
+              </div>
+              <span>Ai</span>
             </div>
-            <span>Ai</span>
+            <div className={styled.quantumContents}>
+              <div id={styled.quantumImage}>
+                <img
+                  src={quantum}
+                  alt="Quantum"
+                  loading="lazy"
+                  sizes="(max-width: 600px) 480px, (max-width: 1200px) 720px, 100vw"
+                />
+                <span>Quantum Computing</span>
+              </div>
+              <span>Quantum</span>
+            </div>
           </div>
-          <div className={styled.quantumContents}>
-            <div id={styled.quantumImage}>
-              <img src={quantum} alt="Quantum" loading="lazy" />
-              <span>Quantum Computing</span>
+          <div className={styled.window}>
+            <div className={styled.DeFIContents}>
+              <div id={styled.DeFImage}>
+                <img
+                  src={rwa}
+                  alt="RWA"
+                  loading="lazy"
+                  sizes="(max-width: 600px) 480px, (max-width: 1200px) 720px, 100vw"
+                />
+                <span>Decentralized Finance</span>
+              </div>
+              <span>RWA</span>
             </div>
-            <span>Quantum</span>
-          </div>
-          <div className={styled.DeFIContents}>
-            <div id={styled.DeFImage}>
-              <img src={rwa} alt="RWA" loading="lazy" />
-              <span>Decentralized Finance</span>
+            <div className={styled.web3Contents}>
+              <div id={styled.web3Image}>
+                <img
+                  src={web3}
+                  alt="Web3"
+                  loading="lazy"
+                  sizes="(max-width: 600px) 480px, (max-width: 1200px) 720px, 100vw"
+                />
+                <span>Web 3.0</span>
+              </div>
+              <span>Web3</span>
             </div>
-            <span>RWA</span>
-          </div>
-          <div className={styled.web3Contents}>
-            <div id={styled.web3Image}>
-              <img src={web3} alt="Web3" loading="lazy" />
-              <span>Web 3.0</span>
-            </div>
-            <span>Web3</span>
           </div>
         </div>
       </div>
