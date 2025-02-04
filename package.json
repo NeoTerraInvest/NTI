@@ -10,7 +10,7 @@
     "prebuild": "node -e \"if (!process.env.npm_execpath.includes('yarn')) { console.error('⚠️ Please use Yarn as the package manager for this project.'); process.exit(1); }\"",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:wasm": "cd wasm-lib && wasm-pack build --target web && cd .. && yarn add file:./wasm-lib/pkg",
+    "build:wasm": "cd wasm-lib && wasm-pack build --target web && cd .. && mkdir -p node_modules/wasm-lib && cp -r wasm-lib/pkg/* node_modules/wasm-lib/",
     "vercel-build": "yarn build:wasm && yarn build",
     "lint": "eslint .",
     "preview": "vite preview"
