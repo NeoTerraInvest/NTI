@@ -1,0 +1,14 @@
+{
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "routes": [
+    {
+      "src": "/wasm-lib/pkg/(.*)",
+      "dest": "/wasm-lib/pkg/$1"
+    }
+  ],
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./src"
+}

@@ -10,8 +10,8 @@
     "prebuild": "node -e \"if (!process.env.npm_execpath.includes('yarn')) { console.error('⚠️ Please use Yarn as the package manager for this project.'); process.exit(1); }\"",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:wasm": "cd wasm-lib && wasm-pack build --target web && cd .. && mkdir -p node_modules/wasm-lib && cp -r wasm-lib/pkg/* node_modules/wasm-lib/",
-    "vercel-build": "yarn build:wasm && yarn build",
+    "build:wasm": "cd wasm-lib && wasm-pack build --target web && cd .. && yarn add file:./wasm-lib/pkg",
+    "vercel-build": "cd wasm-lib && wasm-pack build --target web && cd .. && yarn install",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -22,7 +22,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
     "sass": "^1.83.3",
-    "wasm-lib": "file:./wasm-lib/pkg"
+    "wasm-lib": "file:./wasm-lib/wasm-lib-1.0.0.tgz"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
