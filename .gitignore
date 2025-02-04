@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node.js dependencies
 node_modules
 dist
 dist-ssr
@@ -22,3 +23,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Rust and WebAssembly specific
+wasm-lib/pkg/
+wasm-lib/target/
+wasm-lib/Cargo.lock
+
+# Ignore binaries
+*.wasm
+*.d.ts
+*.js.map
+
+# Ignore npm/yarn/pnpm lock files in subdirectories
+wasm-lib/node_modules/
+wasm-lib/package-lock.json
+wasm-lib/yarn.lock
+wasm-lib/pnpm-lock.yaml
