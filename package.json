@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "client:ssr": "npx vite build --ssr src/components/ssr.tsx --outDir dist/server",
+    "server:ssr": "npx vite build --ssrManifest --outDir dist/client",
+    "build:ssr": "yarn run client:ssr & yarn run server:ssr",
+    "ssr": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
