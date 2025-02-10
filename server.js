@@ -34,10 +34,10 @@ if (!isProduction) {
   app.use(base, sirv("./dist/client", { extensions: [] }));
 }
 
-// Serve HTML
+// Serve HTML with SSR
 app.use("*", async (req, res) => {
   try {
-    const url = req.originalUrl.replace(base, "");
+    const url = req.originalUrl;
 
     let template;
     let render;
@@ -51,21 +51,23 @@ app.use("*", async (req, res) => {
       render = (await import("./dist/server/entry-server.js")).render;
     }
 
-    const rendered = await render(url, ssrManifest);
+    // ✅ Apply StaticRouter by calling render function with URL
+    const { html } = await render(url);
 
-    const html = template
-      .replace(`<!--app-head-->`, rendered.head ?? "")
-      .replace(`<!--app-html-->`, rendered.html ?? "");
+    // Replace SSR placeholders
+    const finalHtml = template.replace(`<!--app-html-->`, html ?? "");
 
-    res.status(200).set({ "Content-Type": "text/html" }).end(html);
+    res.status(200).set({ "Content-Type": "text/html" }).end(finalHtml);
   } catch (e) {
-    vite?.ssrFixStacktrace(e);
-    console.log(e.stack);
-    res.status(500).end(e.stack);
+    if (!isProduction) {
+      vite?.ssrFixStacktrace(e);
+    }
+    console.error("❌ SSR Rendering Error:", e);
+    res.status(500).end("Internal Server Error");
   }
 });
 
 // Start http server
 app.listen(port, () => {
-  console.log(`🧬Server started at http://localhost:${port}`);
+  console.log(`🧬 Server started at http://localhost:${port}`);
 });
