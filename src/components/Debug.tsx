@@ -1,6 +1,6 @@
 import { useState } from "react";
 import reactLogo from "../assets/react.svg";
-import styles from "../app.module.css";
+import styles from "../app.module.scss";
 
 const Debug = () => {
   const [count, setCount] = useState(0);
