@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Test from "./components/Test";
 import Home from "./page/Home";
-import Error from "./components/Error";
+import Error from "./components/HydrationCheck";
 
 const App = () => {
   return (

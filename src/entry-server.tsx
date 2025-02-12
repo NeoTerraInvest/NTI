@@ -1,33 +1,28 @@
-// Libraries imports
 import React from "react";
-import ReactDOMServer from "react-dom/server"; // Server-side rendering module from react-dom library.
+import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 
-// App level imports
 import App from "./App";
-import Error, { ErrorProps } from "./components/Error";
-
-/**
-  This file uses ReactDOMServer, imported above, to render the application on the server-side. This is useful for SEO purposes, as it allows search engines to crawl the application and index its content. This is potentially useful for performance, as it allows the application to render faster on the client-side.
- */
+import HydrationCheck, { ErrorProps } from "./components/HydrationCheck";
 
 interface IRenderProps extends ErrorProps {
-  path: string;
+  url: string;
   statusCode?: number;
 }
 
-export function render({ path, statusCode }: IRenderProps) {
+export const render = ({ url, statusCode }: IRenderProps) => {
   if (statusCode) {
-    return ReactDOMServer.renderToString(<Error statusCode={statusCode} />);
+    return ReactDOMServer.renderToString(
+      <HydrationCheck statusCode={statusCode} />
+    );
   }
 
   const html = ReactDOMServer.renderToString(
-    // The renderToString method, is used to convert React components to an HTML string, which can be sent to the client for initial rendering.
     <React.StrictMode>
-      <StaticRouter location={path}>
+      <StaticRouter location={url}>
         <App />
       </StaticRouter>
     </React.StrictMode>
   );
   return { html };
-}
+};

@@ -1,11 +1,5 @@
-import fs from "node:fs/promises"; // NodeJS async file system module, 'interact' static files
-import express from "express"; // Express is NodeJS library for building api
-
-/**
-  This file is used to set up a NodeJS Express server to handle SSR for our React application. It dynamically selects the appropriate SSR render function and template based on the environment (development or production) and serves the rendered HTML to clients upon request.
-
-  The server is set up to serve the client-side assets in production and use Vite's middleware in development. The server also reads the SSR manifest file in production to determine the appropriate render function to use.
- */
+import fs from "node:fs/promises";
+import express from "express";
 
 // Constants
 const isProduction = process.env.NODE_ENV === "production";
@@ -88,5 +82,5 @@ app.use("*all", async (req, res) => {
 
 // Start http server
 app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`);
+  console.log(`🚀 SSR: Server started at http://localhost:${port}`);
 });
