@@ -18,7 +18,6 @@ const ssrManifest = isProduction
 const app = express();
 
 // Add Vite or respective production middlewares
-/** @type {import('vite').ViteDevServer | undefined} */
 let vite;
 if (!isProduction) {
   const { createServer } = await import("vite");
@@ -28,6 +27,20 @@ if (!isProduction) {
     base,
   });
   app.use(vite.middlewares);
+
+  app.use(async (req, res, next) => {
+    try {
+      // Custom middleware logic
+      next();
+    } catch (error) {
+      const statusCode = error.status || 500;
+      const html = await vite.transformIndexHtml(
+        req.url,
+        `<h1>${statusCode} Error</h1>`
+      );
+      res.status(statusCode).set({ "Content-Type": "text/html" }).end(html);
+    }
+  });
 } else {
   const compression = (await import("compression")).default;
   const sirv = (await import("sirv")).default;
@@ -36,13 +49,12 @@ if (!isProduction) {
 }
 
 // Serve HTML
+// "*home" is Express 5.x syntax for matching all routes
 app.use("*all", async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, "");
 
-    /** @type {string} */
     let template;
-    /** @type {import('./src/entry-server.ts').render} */
     let render;
     if (!isProduction) {
       // Always read fresh template in development
@@ -70,5 +82,5 @@ app.use("*all", async (req, res) => {
 
 // Start http server
 app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`);
+  console.log(`🚀 SSR: Server started at http://localhost:${port}`);
 });

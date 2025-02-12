@@ -1,12 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Debug from "./components/Debug";
 import Test from "./components/Test";
+import Home from "./page/Home";
+import Error from "./components/HydrationCheck";
 
 const App = () => {
   return (
     <Routes>
-      <Route index path="/" element={<Debug />} />
-      <Route index path="/test" element={<Test />} />
+      <Route index path="/" element={<Home />} />
+      <Route path="/test" element={<Test />} />
+      <Route path="*" element={<Error statusCode={404} />} />
     </Routes>
   );
 };

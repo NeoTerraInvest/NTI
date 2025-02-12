@@ -1,4 +1,4 @@
-import styles from "../app.module.css";
+import styles from "../app.module.scss";
 
 const Test = () => {
   return (
