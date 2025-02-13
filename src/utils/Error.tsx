@@ -4,7 +4,7 @@ export interface ErrorProps {
   statusCode?: number;
 }
 
-const HydrationCheck = ({ statusCode }: ErrorProps) => {
+const Error = ({ statusCode }: ErrorProps) => {
   const [isHydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ const HydrationCheck = ({ statusCode }: ErrorProps) => {
   );
 };
 
-export default HydrationCheck;
+export default Error;

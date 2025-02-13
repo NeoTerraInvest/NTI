@@ -3,14 +3,9 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 
 import App from "./App";
-import HydrationCheck, { ErrorProps } from "./components/HydrationCheck";
+import HydrationCheck from "./utils/Error";
 
-interface IRenderProps extends ErrorProps {
-  url: string;
-  statusCode?: number;
-}
-
-export const render = ({ url, statusCode }: IRenderProps) => {
+export const render = (url: string, statusCode: number) => {
   if (statusCode) {
     return ReactDOMServer.renderToString(
       <HydrationCheck statusCode={statusCode} />

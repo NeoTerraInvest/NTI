@@ -1,10 +1,11 @@
 import styles from "../app.module.scss";
+import HydrationCheck from "../utils/HydrationCheck";
 
 const Test = () => {
   return (
-    <div>
+    <HydrationCheck>
       <span className={styles.debug}>test</span>
-    </div>
+    </HydrationCheck>
   );
 };
 
