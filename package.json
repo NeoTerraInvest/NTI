@@ -1,0 +1,33 @@
+{
+  "name": "nti",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "build": "cross-env GENERATE_SOURCEMAP=false npm run build:client && npm run build:server",
+    "build:client": "cross-env GENERATE_SOURCEMAP=false vite build --ssrManifest --outDir dist/client",
+    "build:server": "cross-env GENERATE_SOURCEMAP=false vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "express": "^5.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "sass": "^1.83.3",
+    "sirv": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "4.3.3",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "cross-env": "^7.0.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.1"
+  }
+}
