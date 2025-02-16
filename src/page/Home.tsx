@@ -1,7 +1,7 @@
 import styled from "./Home.module.scss";
 import { kor, eng } from "../assets/language";
 import { useEffect, useRef, useState } from "react";
-import HydrationChck from "../utils/HydrationCheck";
+import HydrationCheck from "../utils/HydrationCheck";
 const Home = () => {
   const [isLanguage, setLanguage] = useState<string>("Eng");
   const [isActive, setActive] = useState<string>("");
@@ -35,7 +35,7 @@ const Home = () => {
   }, []);
 
   return (
-    <HydrationChck>
+    <HydrationCheck>
       <div className={styled.container}>
         <header id={styled.header}>
           <div id={styled.logo}>
@@ -224,7 +224,7 @@ const Home = () => {
           <div></div>
         </footer>
       </div>
-    </HydrationChck>
+    </HydrationCheck>
   );
 };
 
