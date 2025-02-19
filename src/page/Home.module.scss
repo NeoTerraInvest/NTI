@@ -1,0 +1,355 @@
+/* 메인 스타일 */
+.container {
+  width: 100%;
+  //   background-color: #5f9dc2;
+  background-color: #00194c;
+  font-family: 'Pretendard', 'Arial', sans-serif;
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 24px 32px 24px;
+
+    #logo {
+      display: flex;
+      flex-direction: column;
+      font-size: 30px;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-weight: 900;
+      color: #f9f9f9;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      cursor: pointer;
+      #main {
+        font-size: 50px;
+        margin-bottom: 2px;
+      }
+    }
+
+    #language {
+      display: flex;
+      #symbol {
+        background-image: none;
+      }
+      select {
+        border: none;
+        outline: none;
+        color: #f9f9f9;
+        background-color: #00194c;
+      }
+    }
+  }
+
+  #banner {
+    display: flex;
+
+    #bannerImage {
+      width: 100%;
+      height: 500px;
+      background-image: url('../assets/img/banner-skyscraper.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  #contents {
+    background-color: #f9f9f9;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 120px;
+
+    #about,
+    #invest {
+      background-color: f9f9f9;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #about {
+      width: 100%;
+      margin-top: 60px;
+      font-size: 16px;
+      margin-bottom: 72px;
+      // letter-spacing: -5px;
+      // font-weight: 600;
+      #aboutTitle {
+        width: 100%;
+        margin-top: 60px;
+        font-size: 60px;
+        // letter-spacing: -5px;
+        font-weight: 600;
+        margin-bottom: 40px;
+      }
+      #aboutDetail {
+        display: flex;
+        flex-direction: column;
+        #aboutus {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 0 48px 0 48px;
+          span:first-child {
+            margin-top: 40px;
+            margin-bottom: 72px;
+          }
+          #details {
+            display: flex;
+            flex-direction: column;
+            font-size: 36px;
+            font-weight: 600;
+            padding: 60px 0px;
+            #content {
+              margin-bottom: 3%;
+              color: #413c3c;
+              cursor: pointer;
+              .title {
+                display: flex;
+                margin-bottom: 10px;
+              }
+              .title:hover {
+                color: #0a265e;
+              }
+              .description {
+                font-size: 20px;
+                margin-top: 3%;
+                margin-left: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #invest {
+      margin-bottom: 200px;
+      .investTitle {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 40px;
+
+        font-family: 'Helvetica';
+        font-size: 60px;
+        font-weight: 600;
+        span:first-child {
+          margin-bottom: 24px;
+        }
+      }
+      #investContents {
+        display: flex;
+        //retry
+        justify-content: space-evenly;
+        margin-top: 88px;
+
+        .aiContents,
+        .quantumContents,
+        .DeFIContents,
+        .web3Contents {
+          display: flex;
+          flex-direction: column;
+          color: #413c3c;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 1px;
+
+          //common Styled
+          #aiImage,
+          #quantumImage,
+          #DeFImage,
+          #web3Image {
+            width: 240px;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: solid 2px #aaa6a6;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            cursor: pointer;
+            // for HoverEffect code
+            position: relative;
+            overflow: hidden;
+          }
+
+          #aiImage {
+            background-image: url('../assets/img/ai.jpg');
+          }
+          #quantumImage {
+            background-image: url('../assets/img/quantum.jpg');
+          }
+          #DeFImage {
+            background-image: url('../assets/img/rwa.svg');
+          }
+          #web3Image {
+            background-image: url('../assets/img/web3.jpg');
+          }
+          // onMouseEnter Effect
+          #aiImage::after,
+          #quantumImage::after,
+          #DeFImage::after,
+          #web3Image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #413c3c;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+          }
+          // onMouseEnter, opacity
+          #aiImage:hover::after,
+          #quantumImage:hover::after,
+          #DeFImage:hover::after,
+          #web3Image:hover::after {
+            opacity: 0.5;
+          }
+          // showing Text
+          #aiImage span,
+          #quantumImage span,
+          #DeFImage span,
+          #web3Image span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+            z-index: 2;
+          }
+
+          // onMouseEnter about Text opacity
+          #aiImage:hover span,
+          #quantumImage:hover span,
+          #DeFImage:hover span,
+          #web3Image:hover span {
+            opacity: 1;
+            color: #fff;
+          }
+          //button text
+          span {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    background-color: #00194c;
+    color: #f9f9f9;
+    padding: 24px 24px;
+
+    #logo {
+      display: flex;
+      flex-direction: column;
+      font-weight: 100;
+      letter-spacing: 2px;
+      font-size: 10px;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      text-transform: uppercase;
+
+      #main {
+        font-size: 40px;
+        font-weight: 900;
+      }
+    }
+
+    #footerContents {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      #footerGroup {
+        display: flex;
+        justify-content: space-evenly;
+        width: 50%;
+        font-size: 20px;
+        font-weight: 200;
+        letter-spacing: 1.5px;
+        span {
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contents {
+    padding: 0 20px !important;
+  }
+
+  #details {
+    padding: 0 !important;
+    font-size: 24px !important;
+  }
+
+  #content {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #invest {
+    .investTitle {
+      width: 100%;
+      margin-top: 60px;
+
+      font-size: 30px;
+      letter-spacing: -5px;
+      font-weight: 600;
+      span:first-child {
+        margin-bottom: 20px;
+      }
+    }
+    #investContents {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px !important;
+    }
+  }
+
+  #investContents #aiImage,
+  #investContents #quantumImage,
+  #investContents #DeFImage,
+  #investContents #web3Image {
+    width: 350px !important;
+  }
+
+  #footerContents {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  #footerGroup {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
