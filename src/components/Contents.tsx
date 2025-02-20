@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { kor, eng } from "../assets/language";
+import languageData from "../assets/language.json";
+import { LanguageData } from "../assets/language";
 import styled from "../style/contents.module.scss";
 
 const Contents = () => {
+  const kor: LanguageData["kor"] = languageData.kor;
+  const eng: LanguageData["eng"] = languageData.eng;
+
   const supportLanguage = useSelector(
     (state: RootState) => state.language.language
   );
-  const [isLanguage, setLanguage] = useState<Record<string, string>>({});
+  // const [isLanguage, setLanguage] = useState<Record<string, string>>({});
 
   const [isActive, setActive] = useState<string>("");
   const contentRef = useRef<HTMLDivElement>(null); // reference Components
