@@ -1,4 +1,4 @@
-import styled from "./Home.module.scss";
+import styled from "../style/Home.module.scss";
 import { kor, eng } from "../assets/language";
 import { useEffect, useRef, useState } from "react";
 import HydrationChck from "../utils/HydrationCheck";

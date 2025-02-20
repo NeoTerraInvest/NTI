@@ -1,0 +1,19 @@
+.debug {
+  #test {
+    background-color: aqua;
+    color: black;
+  }
+
+  #language {
+    display: flex;
+    #symbol {
+      background-image: none;
+    }
+    select {
+      border: none;
+      outline: none;
+      color: #f9f9f9;
+      background-color: #00194c;
+    }
+  }
+}
